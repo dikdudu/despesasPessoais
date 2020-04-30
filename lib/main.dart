@@ -1,3 +1,4 @@
+import 'package:expenses/components/transaction_user.dart';
 import 'package:flutter/material.dart';
 
 main() => runApp(ExpensesApp());
@@ -19,19 +20,28 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Despesas Pessoais"),
         centerTitle: true,
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Card(
-            color: Colors.blue,
-            child: Text("Gráfico"),
-          ),
-          Card(
-            child: Text("Lista de Transação"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {},
           ),
         ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Card(
+              color: Colors.blue,
+              child: Text("Gráfico"),
+            ),
+            TransactionUser(),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: (){},
       ),
     );
   }
